@@ -1,0 +1,14 @@
+services:
+  ros:
+    image: osrf/ros:jazzy-desktop-full
+    container_name: ros2_jazzy_dev
+    entrypoint: ["/ros_entrypoint.sh"]
+    command: ["bash", "-c", "trap : TERM INT; sleep infinity & wait"]
+    working_dir: /home/ros/ws
+    tty: true
+    stdin_open: true
+    environment:
+      - DISPLAY=${DISPLAY:-}
+      - ROS_DOMAIN_ID=0
+    volumes:
+      - ./workspace:/home/ros/ws
