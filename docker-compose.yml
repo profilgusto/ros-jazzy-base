@@ -10,5 +10,6 @@ services:
     environment:
       - DISPLAY=${DISPLAY:-}
       - ROS_DOMAIN_ID=0
+      - ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
     volumes:
       - ./workspace:/home/ros/ws
